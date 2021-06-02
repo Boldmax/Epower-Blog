@@ -9,10 +9,21 @@ import {
   Header,
   HeaderTitle,
   HeaderDate,
+  Footer,
+  Copyright,
+  Slug
 } from "./SinglePage.style";
+/* import { useParams } from "react-router-dom"; */
 
 export default function SinglePage() {
   const [blogPost, setBlogPost] = useState({});
+  const [searchTerm, setSearchTerm] = useState();
+
+  const getFromLS = () => {
+    return localStorage.getItem("KEY");
+  };
+
+  /* console.log(blogPost); */
 
   var allList = () => {
     axios
@@ -25,33 +36,35 @@ export default function SinglePage() {
 
   useEffect(() => {
     allList();
+    setSearchTerm(() => getFromLS())
   }, []);
 
   return (
     <Container>
-      {Object.entries(blogPost).map((data) => {
-        return (
-          <>
-            <Header key={data[1].date }>
-              <HeaderTitle
-                dangerouslySetInnerHTML={{ __html: data[1].title.rendered }}
-              />
-              <HeaderDate >
-              Published on : {data[1].date }
-              </HeaderDate>
-            </Header>
-            <Cards key={data[1].id}>
-              <Image src={data[1].featured_image} />
-              <Title
-                dangerouslySetInnerHTML={{ __html: data[1].title.rendered }}
-              />
-              <Content
-                dangerouslySetInnerHTML={{ __html: data[1].content.rendered }}
-              />
-            </Cards>
-          </>
-        );
+      {Object.entries(blogPost).map((data, key) => {
+        if (data[1].id == searchTerm)
+          return (
+            <>
+              <Header key={key}>
+                <HeaderTitle
+                  dangerouslySetInnerHTML={{ __html: data[1].title.rendered }}
+                />
+                <HeaderDate>Published on : {data[1].date}</HeaderDate>
+              </Header>
+              <Cards key={data[1].id}>
+                <Image src={data[1].featured_image} />
+                <Title
+                  dangerouslySetInnerHTML={{ __html: data[1].title.rendered }}
+                />
+                <Content
+                  dangerouslySetInnerHTML={{ __html: data[1].content.rendered }}
+                />
+                < Slug dangerouslySetInnerHTML={{ __html: data[1].slug }} />
+              </Cards>
+            </>
+          );
       })}
+      <Footer><Copyright>Copyright 2021</Copyright></Footer>
     </Container>
   );
 }

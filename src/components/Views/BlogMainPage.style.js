@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Link } from "react-router-dom";
+/* import { Link } from "react-router-dom"; */
 
 
 export const Header = styled.div`
@@ -7,7 +7,8 @@ position: relative;
 width: 100%;
 height: 10rem;
 background: #2d8d9e;
-margin-bottom: 1rem;
+margin-bottom: ${(props) => props.footer ? "0px" : "3rem"};
+margin-top: ${(props) => props.footer ? "4rem" : "0rem"};
 `
 export const HeaderTitle = styled.div`
 display: block;
@@ -26,14 +27,17 @@ export const Container = styled.div`
 display: flex;
 flex-wrap: wrap;
 position: relative;
+margin: 0;
+padding: 0;
 width: 100%;
-height: max-content;
+height: 100%;
 padding-bottom: 4rem;
 justify-content: center;
 align-content: center;
+
 `
 
-export const Links = styled(Link)`
+export const Links = styled.span`
 display: block;
 font-size: 14px;
 width: 20vw;
@@ -48,7 +52,7 @@ text-decoration: none;
 export const Cards = styled.div`
 display: flex;
 flex-direction: column;
-width: 25vw;
+width: 27.8vw;
 height: 75vh;
 background: #ffffff;
 margin: 1rem 2rem;
@@ -65,10 +69,10 @@ margin: auto;
 
 export const Button = styled.button`
 width: 10rem;
-height: 4rem;
+height: 3rem;
 font-size: 18px;
 background: #2d8d9e;
-border-radius: 15px;
+border-radius: 25px;
 color:  #ffffff;
 outline: none;
 border: none;
@@ -76,7 +80,25 @@ border: none;
 
 export const ButtonCont = styled.div`
 display: flex;
-width: 50vw;
+width: 40vw;
 justify-content: space-between;
-margin-top: 2rem;
+margin-top: 5rem;
+`
+
+export const Copyright = styled.p`
+display: block;
+width: max-content;
+margin: auto;
+margin-top: 3rem;
+font-size: 18px;
+color: #ffffff;
+`
+
+export const Footer = styled.div`
+position: relative;
+width: 100%;
+height: 10rem;
+background: #2d8d9e;
+margin-bottom: 0;
+margin-top: 10%;
 `
