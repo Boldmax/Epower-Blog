@@ -39,8 +39,6 @@ export default function BlogMainPage() {
     allList();
   }, []);
 
-  /* console.log(blogPost); */
-  console.log(`Keys:${seachKey}`);
   localStorage.setItem("KEY", seachKey);
 
   return (
@@ -58,7 +56,6 @@ export default function BlogMainPage() {
                 dangerouslySetInnerHTML={{ __html: data[1].title.rendered }}
               />
               <Links
-                /*                to="/blog" */
                 dangerouslySetInnerHTML={{ __html: data[1].excerpt.rendered }}
                 onClick={() => handleClick(data[1].id)}
               />

@@ -4,11 +4,13 @@ import styled from 'styled-components'
 
 export const Header = styled.div`
 position: relative;
-width: 100%;
+width: 100vw;
 height: 10rem;
 background: #2d8d9e;
-margin-bottom: ${(props) => props.footer ? "0px" : "3rem"};
-margin-top: ${(props) => props.footer ? "4rem" : "0rem"};
+margin-left: 0;
+margin-right: 0;
+margin-bottom: 3rem;
+/* margin-top: ${(props) => props.footer ? "4rem" : "0rem"}; */
 `
 export const HeaderTitle = styled.div`
 display: block;
@@ -29,7 +31,7 @@ width: 23.73rem;
 }
 
 @media (max-width: 425px){
-width: 22.7rem;
+width: 85vw;
 }
 `
 
@@ -41,7 +43,7 @@ margin: 0;
 padding: 0;
 width: 100%;
 height: 100%;
-padding-bottom: 4rem;
+/* padding-bottom: 4rem; */
 justify-content: center;
 align-content: center;
 
@@ -79,6 +81,7 @@ box-shadow: 0px 4px 9px 0px rgba(170, 198, 206, 0.24);
 
 @media (max-width: 768px){
     width: 85vw;
+    height: max-content;
 }
 `
 
@@ -106,6 +109,10 @@ border-radius: 25px;
 color:  #ffffff;
 outline: none;
 border: none;
+
+@media (max-width: 425px){
+    width: 8rem;
+}
 `
 
 export const ButtonCont = styled.div`
@@ -118,6 +125,11 @@ margin-top: 5rem;
     width: 65vw;
     align-self: center;
     justify-content: center;
+}
+
+@media (max-width: 425px){
+    width: 90vw;
+    justify-content: space-around;
 }
 `
 
@@ -132,7 +144,7 @@ color: #ffffff;
 
 export const Footer = styled.div`
 position: relative;
-width: 100%;
+width: 100vw;
 height: 10rem;
 background: #2d8d9e;
 margin-bottom: 0;

@@ -11,9 +11,8 @@ import {
   HeaderDate,
   Footer,
   Copyright,
-  Slug
+  Slug,
 } from "./SinglePage.style";
-/* import { useParams } from "react-router-dom"; */
 
 export default function SinglePage() {
   const [blogPost, setBlogPost] = useState({});
@@ -22,8 +21,6 @@ export default function SinglePage() {
   const getFromLS = () => {
     return localStorage.getItem("KEY");
   };
-
-  /* console.log(blogPost); */
 
   var allList = () => {
     axios
@@ -36,7 +33,7 @@ export default function SinglePage() {
 
   useEffect(() => {
     allList();
-    setSearchTerm(() => getFromLS())
+    setSearchTerm(() => getFromLS());
   }, []);
 
   return (
@@ -59,12 +56,14 @@ export default function SinglePage() {
                 <Content
                   dangerouslySetInnerHTML={{ __html: data[1].content.rendered }}
                 />
-                < Slug dangerouslySetInnerHTML={{ __html: data[1].slug }} />
+                <Slug dangerouslySetInnerHTML={{ __html: data[1].slug }} />
               </Cards>
             </>
           );
       })}
-      <Footer><Copyright>Copyright 2021</Copyright></Footer>
+      <Footer>
+        <Copyright>Copyright 2021</Copyright>
+      </Footer>
     </Container>
   );
 }

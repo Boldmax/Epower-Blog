@@ -69,7 +69,6 @@ flex-wrap: wrap;
 position: relative;
 width: 100%;
 height: max-content;
-padding-bottom: 4rem;
 justify-content: center;
 align-content: center;
 margin-bottom: 0;
