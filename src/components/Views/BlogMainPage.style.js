@@ -21,6 +21,16 @@ color:  #ffffff;
 export const Image = styled.img`
 height: 18rem;
 width: 23.73rem;
+
+@media (max-width: 768px){
+    display: block;
+
+    margin: auto;
+}
+
+@media (max-width: 425px){
+width: 22.7rem;
+}
 `
 
 export const Container = styled.div`
@@ -35,6 +45,9 @@ padding-bottom: 4rem;
 justify-content: center;
 align-content: center;
 
+@media (max-width: 768px){
+    flex-direction: column;
+}
 `
 
 export const Links = styled.span`
@@ -47,6 +60,12 @@ text-decoration: none;
 
 &:hover{
     color:  blue;
+    cursor: pointer;
+}
+
+@media (max-width: 768px){
+    width: 65vw;
+    margin-top: 0rem;
 }
 `
 export const Cards = styled.div`
@@ -57,6 +76,10 @@ height: 75vh;
 background: #ffffff;
 margin: 1rem 2rem;
 box-shadow: 0px 4px 9px 0px rgba(170, 198, 206, 0.24);
+
+@media (max-width: 768px){
+    width: 85vw;
+}
 `
 
 export const Title = styled.h3`
@@ -65,6 +88,13 @@ font-size: 18px;
 color:  #000000;
 width: 18vw;
 margin: auto;
+@media (max-width: 768px){
+    display: flex;
+    width: 80vw;
+    margin-top: 0.5rem;
+    justify-content: center;
+    align-self: auto;
+}
 `
 
 export const Button = styled.button`
@@ -83,6 +113,12 @@ display: flex;
 width: 40vw;
 justify-content: space-between;
 margin-top: 5rem;
+
+@media (max-width: 768px){
+    width: 65vw;
+    align-self: center;
+    justify-content: center;
+}
 `
 
 export const Copyright = styled.p`
