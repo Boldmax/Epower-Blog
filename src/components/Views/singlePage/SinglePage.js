@@ -39,7 +39,8 @@ export default function SinglePage() {
   return (
     <Container>
       {Object.entries(blogPost).map((data, key) => {
-        if (data[1].id == searchTerm)
+        const newData = parseInt(searchTerm);
+        if (data[1].id === newData)
           return (
             <>
               <Header key={key}>
