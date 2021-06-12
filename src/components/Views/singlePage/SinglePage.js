@@ -36,31 +36,36 @@ export default function SinglePage() {
     setSearchTerm(() => getFromLS());
   }, []);
 
+  const newData = parseInt(searchTerm);
   return (
     <Container>
       {Object.entries(blogPost).map((data, key) => {
-        const newData = parseInt(searchTerm);
-        if (data[1].id === newData)
-          return (
-            <>
-              <Header key={key}>
-                <HeaderTitle
-                  dangerouslySetInnerHTML={{ __html: data[1].title.rendered }}
-                />
-                <HeaderDate>Published on : {data[1].date}</HeaderDate>
-              </Header>
-              <Cards key={data[1].id}>
-                <Image src={data[1].featured_image} />
-                <Title
-                  dangerouslySetInnerHTML={{ __html: data[1].title.rendered }}
-                />
-                <Content
-                  dangerouslySetInnerHTML={{ __html: data[1].content.rendered }}
-                />
-                <Slug dangerouslySetInnerHTML={{ __html: data[1].slug }} />
-              </Cards>
-            </>
-          );
+         
+         return <li key={key}> 
+                 
+            <Header>
+            {data[1].id === newData ?
+              <HeaderTitle
+                dangerouslySetInnerHTML={{ __html: data[1].title.rendered }}
+              />
+              : null }
+              {data[1].id === newData ?
+              <HeaderDate>Published on : {data[1].date}</HeaderDate>
+              : null }
+            </Header>
+            {data[1].id === newData ?
+            <Cards key={data[1].id}>
+              <Image src={data[1].featured_image} />
+              <Title
+                dangerouslySetInnerHTML={{ __html: data[1].title.rendered }}
+              />
+              <Content
+                dangerouslySetInnerHTML={{ __html: data[1].content.rendered }}
+              />
+              <Slug dangerouslySetInnerHTML={{ __html: data[1].slug }} />
+            </Cards>
+            : null }
+          </li>
       })}
       <Footer>
         <Copyright>Copyright 2021</Copyright>
